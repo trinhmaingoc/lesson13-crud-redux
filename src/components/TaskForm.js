@@ -6,16 +6,10 @@ export class TaskForm extends Component {
   constructor(props) {
     super(props)
   
-    this.state = {
-      id: '',
-      name: '',
-      status: false
-    }
+    this.state = {}
   }
 
   componentDidMount() {
-    console.log(this.props.editTask);
-    
     if (this.props.editTask) {
       this.setState({
         id: this.props.editTask.id,
@@ -64,7 +58,8 @@ export class TaskForm extends Component {
   }
 
   render() {
-    const { isDisplayForm, editTask } = this.props;
+    const { id, name, status } = this.state;
+    const { isDisplayForm } = this.props;
     if (!isDisplayForm) return '';
     return (
       <div className="col-xs-12 col-sm-4 col-md-4 col-lg-4">
@@ -72,7 +67,7 @@ export class TaskForm extends Component {
         <div className="panel panel-warning">
           <div className="panel-heading">
             <h3 className="panel-title">
-              {editTask.id ? "Cập nhật công việc" : "Thêm Công Việc"}
+              {id ? "Cập nhật công việc" : "Thêm Công Việc"}
               <span
                 className="fa fa-times-circle text-right"
                 onClick={this.props.onCloseForm}
@@ -87,7 +82,7 @@ export class TaskForm extends Component {
                   type="text"
                   className="form-control"
                   name="name"
-                  value={editTask.name}
+                  value={name}
                   onChange={this.onChange}
                 />
               </div>
@@ -96,7 +91,7 @@ export class TaskForm extends Component {
                 <select
                   name="status"
                   className="form-control"
-                  value={editTask.status}
+                  value={status}
                   onChange={this.onChange}
                 >
                   <option value={false}>Ẩn</option>

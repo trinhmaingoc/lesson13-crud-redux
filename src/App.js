@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import TaskForm from './components/TaskForm';
 import TaskControl from './components/TaskControl';
 import TaskList from './components/TaskList';
-import { toggleForm } from './actions';
+import { toggleForm, editTask, openForm } from './actions';
 
 export class App extends Component {
   constructor(props) {
@@ -23,15 +23,18 @@ export class App extends Component {
     }
   }
 
-  // onUpdateItem = (id) => {
-  //   const { tasks } = this.state;
-  //   const index = this.findIndex(id);
-  //   const taskEditting = tasks[index];
-  //   this.setState({
-  //     taskEditting: taskEditting,
-  //   });
-  //   this.onOpenForm();
-  // }
+  onToggleForm = () => {
+    if (this.props.editTask.id) {
+      this.props.onOpenForm();
+    } else {
+      this.props.onToggleForm();
+    }
+    this.props.onClearTask({
+      id: '',
+      name: '',
+      status: false
+    });
+  }
 
   onFilter = (filterName, filterStatus) => {
     filterStatus = parseInt(filterStatus, 10);
@@ -112,7 +115,7 @@ export class App extends Component {
             <button
               type="button"
               className="btn btn-primary"
-              onClick={this.props.onToggleForm}
+              onClick={this.onToggleForm}
             >
               <span className="fa fa-plus mr-5"></span>
               Thêm Công Việc
@@ -136,10 +139,13 @@ export class App extends Component {
 
 const mapStateToProps = (state) => ({
   isDisplayForm: state.isDisplayForm,
+  editTask: state.editTask,
 })
 
 const mapDispatchToProps = {
   onToggleForm: toggleForm,
+  onOpenForm: openForm,
+  onClearTask: editTask,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
