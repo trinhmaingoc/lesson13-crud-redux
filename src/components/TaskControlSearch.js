@@ -1,6 +1,8 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { searchTable } from '../actions';
 
-export class Search extends Component {
+export class TaskControlSearch extends Component {
     constructor(props) {
         super(props)
     
@@ -18,8 +20,8 @@ export class Search extends Component {
         });
     };
 
-    onSearch = () => {
-        this.props.onSearch(this.state.keyword);
+    onSearchTable = () => {
+        this.props.onSearchTable(this.state.keyword);
     }
     
     render() {
@@ -37,7 +39,7 @@ export class Search extends Component {
                         <button 
                             type="button" 
                             className="btn btn-primary"
-                            onClick={this.onSearch}
+                            onClick={this.onSearchTable}
                         >
                             <span className="fa fa-search mr-5"></span>Tìm
                         </button>
@@ -48,4 +50,12 @@ export class Search extends Component {
     }
 }
 
-export default Search
+const mapStateToProps = (state) => ({
+    
+})
+
+const mapDispatchToProps = {
+    onSearchTable: searchTable,
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(TaskControlSearch)

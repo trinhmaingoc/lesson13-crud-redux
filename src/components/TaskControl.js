@@ -7,13 +7,9 @@ export class Control extends Component {
     return (
       <div className="row">
         {/* Search */}
-        <TaskControlSearch 
-          onSearch={this.props.onSearch}
-        />
+        <TaskControlSearch />
         {/* Sort */}
-        <TaskControlSort
-          onSort={this.props.onSort}
-        />
+        <TaskControlSort />
       </div>
     )
   }

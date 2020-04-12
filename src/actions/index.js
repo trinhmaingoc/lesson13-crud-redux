@@ -36,3 +36,18 @@ export const editTask = (payload) => ({
     type: types.EDIT_TASK,
     payload
 })
+
+export const filterTable = (payload) => ({
+    type: types.FILTER_TABLE,
+    payload
+})
+
+export const searchTable = (payload) => ({
+    type: types.SEARCH_TABLE,
+    payload
+})
+
+export const sortTable = (payload) => ({
+    type: types.SORT_TABLE,
+    payload
+})

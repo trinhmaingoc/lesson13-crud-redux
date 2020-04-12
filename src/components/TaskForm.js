@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { saveTask, closeForm } from '../actions';
+import { saveTask, closeForm, editTask } from '../actions';
 
 export class TaskForm extends Component {
   constructor(props) {
@@ -126,6 +126,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = {
   onSaveTask: saveTask,
   onCloseForm: closeForm,
+  onEditTask: editTask,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(TaskForm)

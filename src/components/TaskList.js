@@ -1,35 +1,62 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import TaskItem from './TaskItem';
+import { filterTable } from '../actions';
 
 export class TaskList extends Component {
-  constructor(props) {
-    super(props)
-  
-    this.state = {
-       filterName: '',
-       filterStatus: -1
-    }
-  }
 
   onChange = (event) => {
     const target = event.target;
     const name = target.name;
     let value = target.type === 'checkbox' ? target.checked : target.value;
-    this.props.onFilter(
-      name === "filterName" ? value : this.state.filterName,
-      name === "filterStatus" ? value : this.state.filterStatus
-    );
+    this.props.onFilterTable({
+      name: name === "filterName" ? value : this.state.filterName,
+      status: name === "filterStatus" ? value : this.state.filterStatus
+    });
     this.setState({
       [name]: value,
     });
   }
-  
+
   render() {
-    const { tasks } = this.props;
-    const { filterName, filterStatus } = this.state;
+    let { tasks, filterTable, keyword, sortTable } = this.props;
+
+    if (filterTable.name) {
+      tasks = tasks.filter((task) => {
+        return task.name.toLowerCase().indexOf(filterTable.name.toLowerCase()) !== -1;
+      })
+    }
+
+    if (filterTable.status !== -1) {
+      tasks = tasks.filter((task) => {
+        return task.status === (filterTable.status === 0 ? false : true);
+      })
+    }
+
+    if (keyword) {
+      tasks = tasks.filter((task) => {
+        return task.name.toLowerCase().indexOf(keyword.toLowerCase()) !== -1;
+      });
+    }
+
+    if (sortTable.by === 'name') {
+      tasks.sort((a, b) => {
+        if (a.name > b.name) return sortTable.value;
+        else if (a.name < b.name) return -sortTable.value;
+        else return 0;
+      })
+    };
+
+    if (sortTable.by === 'status') {
+      tasks.sort((a, b) => {
+        if (a.status > b.status) return sortTable.value;
+        else if (a.status < b.status) return -sortTable.value;
+        else return 0;
+      })
+    }
+
     const elmTasks = tasks.map((task, index) => (
-      <TaskItem 
+      <TaskItem
         key={index}
         task={task}
         index={index}
@@ -55,7 +82,7 @@ export class TaskList extends Component {
                   <input
                     type="text"
                     className="form-control"
-                    value={filterName}
+                    value={filterTable.name}
                     name="filterName"
                     onChange={this.onChange}
                   />
@@ -64,7 +91,7 @@ export class TaskList extends Component {
                   <select
                     name="filterStatus"
                     className="form-control"
-                    value={filterStatus}
+                    value={filterTable.status}
                     onChange={this.onChange}
                   >
                     <option value={-1}>Tất Cả</option>
@@ -85,10 +112,13 @@ export class TaskList extends Component {
 
 const mapStateToProps = (state) => ({
   tasks: state.tasks,
+  filterTable: state.filterTable,
+  keyword: state.searchTable,
+  sortTable: state.sortTable,
 })
 
 const mapDispatchToProps = {
-
+  onFilterTable: filterTable,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(TaskList)
