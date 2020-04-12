@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/lesson13-crud-redux/static/css/main.38544fcc.chunk.css",
-    "main.js": "/lesson13-crud-redux/static/js/main.184a9596.chunk.js",
-    "main.js.map": "/lesson13-crud-redux/static/js/main.184a9596.chunk.js.map",
+    "main.js": "/lesson13-crud-redux/static/js/main.2ee0d445.chunk.js",
+    "main.js.map": "/lesson13-crud-redux/static/js/main.2ee0d445.chunk.js.map",
     "runtime-main.js": "/lesson13-crud-redux/static/js/runtime-main.9aaf5695.js",
     "runtime-main.js.map": "/lesson13-crud-redux/static/js/runtime-main.9aaf5695.js.map",
-    "static/js/2.af345a1e.chunk.js": "/lesson13-crud-redux/static/js/2.af345a1e.chunk.js",
-    "static/js/2.af345a1e.chunk.js.map": "/lesson13-crud-redux/static/js/2.af345a1e.chunk.js.map",
+    "static/js/2.bd8afe81.chunk.js": "/lesson13-crud-redux/static/js/2.bd8afe81.chunk.js",
+    "static/js/2.bd8afe81.chunk.js.map": "/lesson13-crud-redux/static/js/2.bd8afe81.chunk.js.map",
     "index.html": "/lesson13-crud-redux/index.html",
-    "precache-manifest.fc9ada10a3697a83bba862fbee52458e.js": "/lesson13-crud-redux/precache-manifest.fc9ada10a3697a83bba862fbee52458e.js",
+    "precache-manifest.e259d001e5a83cc04763dcf9ae9d5bb6.js": "/lesson13-crud-redux/precache-manifest.e259d001e5a83cc04763dcf9ae9d5bb6.js",
     "service-worker.js": "/lesson13-crud-redux/service-worker.js",
     "static/css/main.38544fcc.chunk.css.map": "/lesson13-crud-redux/static/css/main.38544fcc.chunk.css.map",
-    "static/js/2.af345a1e.chunk.js.LICENSE.txt": "/lesson13-crud-redux/static/js/2.af345a1e.chunk.js.LICENSE.txt"
+    "static/js/2.bd8afe81.chunk.js.LICENSE.txt": "/lesson13-crud-redux/static/js/2.bd8afe81.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.9aaf5695.js",
-    "static/js/2.af345a1e.chunk.js",
+    "static/js/2.bd8afe81.chunk.js",
     "static/css/main.38544fcc.chunk.css",
-    "static/js/main.184a9596.chunk.js"
+    "static/js/main.2ee0d445.chunk.js"
   ]
 }
