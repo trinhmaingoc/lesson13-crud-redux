@@ -5,7 +5,34 @@ export const listAll = (payload) => ({
     payload
 })
 
-export const addTask = (payload) => ({
-    type: types.ADD_TASK,
+export const saveTask = (payload) => ({
+    type: types.SAVE_TASK,
+    payload
+})
+
+export const toggleForm = () => ({
+    type: types.TOGGLE_FORM
+})
+
+export const openForm = () => ({
+    type: types.OPEN_FORM
+})
+
+export const closeForm = () => ({
+    type: types.CLOSE_FORM
+})
+
+export const updateStatus = (payload) => ({
+    type: types.UPDATE_STATUS,
+    payload
+})
+
+export const deleteTask = (payload) => ({
+    type: types.DELETE_TASK,
+    payload
+})
+
+export const editTask = (payload) => ({
+    type: types.EDIT_TASK,
     payload
 })

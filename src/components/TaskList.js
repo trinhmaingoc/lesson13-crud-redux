@@ -33,9 +33,6 @@ export class TaskList extends Component {
         key={index}
         task={task}
         index={index}
-        onUpdateStatus={this.props.onUpdateStatus}
-        onDeleteItem={this.props.onDeleteItem}
-        onUpdateItem={this.props.onUpdateItem}
       />
     ));
 
@@ -91,7 +88,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = {
-  
+
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(TaskList)
